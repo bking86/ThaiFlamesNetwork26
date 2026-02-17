@@ -1,0 +1,33 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --eggshell: #F9F8F1;
+  --ocean-blue: #00247D;
+  --siamese-madder: #A51931;
+  --golden-silk: #D4AF37;
+  --deep-forest: #1B4332;
+  --damkhamao: #1B1B1B;
+}
+
+@layer base {
+  body {
+    @apply bg-eggshell text-damkhamao selection:bg-silk/30;
+  }
+  
+  h1, h2, h3, h4, .font-serif {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .btn-premium {
+    @apply bg-madder text-white px-8 py-4 text-[10px] font-bold tracking-[0.2em] uppercase transition-all hover:bg-[#8a1529] shadow-lg hover:translate-y-[-2px] active:translate-y-0;
+  }
+  
+  .card-premium {
+    @apply bg-white border border-silk/10 shadow-[0_10px_30px_-15px_rgba(0,36,125,0.1)] transition-all hover:shadow-[0_20px_40px_-15px_rgba(0,36,125,0.15)];
+  }
+}

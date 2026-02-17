@@ -1,0 +1,8 @@
+
+{
+  "name": "Thai Flames Network",
+  "description": "A production-ready high-trust matchmaking ecosystem with AI vetting and cultural mentorship.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

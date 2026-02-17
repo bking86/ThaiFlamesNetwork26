@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thai Flames Network - National-Premium Matchmaking</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --eggshell: #F9F8F1;
+      --ocean-blue: #00247D;
+      --siamese-madder: #A51931;
+      --golden-silk: #D4AF37;
+      --deep-forest: #1B4332;
+      --damkhamao: #1B1B1B;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--eggshell);
+      color: var(--damkhamao);
+      line-height: 1.6;
+    }
+    h1, h2, h3, .font-serif {
+      font-family: 'Lora', serif;
+    }
+    .bg-eggshell { background-color: var(--eggshell); }
+    .bg-ocean { background-color: var(--ocean-blue); }
+    .bg-silk { background-color: var(--golden-silk); }
+    .bg-madder { background-color: var(--siamese-madder); }
+    .bg-forest { background-color: var(--deep-forest); }
+    
+    .text-ocean { color: var(--ocean-blue); }
+    .text-silk { color: var(--golden-silk); }
+    .text-madder { color: var(--siamese-madder); }
+    .text-forest { color: var(--deep-forest); }
+    
+    .border-silk { border-color: var(--golden-silk); }
+    
+    /* Premium Boutique Touches */
+    .premium-card {
+      background: white;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      box-shadow: 0 4px 20px -10px rgba(0, 36, 125, 0.1);
+    }
+    
+    .btn-action {
+      background-color: var(--siamese-madder);
+      color: white;
+      letter-spacing: 0.15em;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .btn-action:hover {
+      background-color: #8a1529;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px -10px rgba(165, 25, 49, 0.4);
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.41.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "next/": "https://esm.sh/next@^16.1.6/",
+    "@vercel/postgres": "https://esm.sh/@vercel/postgres@^0.10.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-eggshell">
+  <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
