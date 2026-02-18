@@ -1,50 +1,44 @@
 
-import { GoogleGenAI, Type } from "@google/genai";
 import { Profile } from "../types";
-
-// Always initialize the client using process.env.API_KEY directly as per guidelines
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 export const generateBio = async (keywords: string, tone: string): Promise<string> => {
   try {
-    const response = await ai.models.generateContent({
-      model: 'gemini-3-flash-preview',
-      contents: `Create a captivating dating profile bio for a site called "Thai Flames". 
-      The person's key traits/interests: ${keywords}. 
-      The desired tone: ${tone}. 
-      Keep it under 150 words. Focus on being authentic and engaging.`,
+    const response = await fetch('/api/generate-bio', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ keywords, tone }),
     });
-    // Access .text property directly, do not call it as a method
-    return response.text || "I'm a mystery waiting to be discovered.";
+
+    if (!response.ok) {
+      throw new Error('Failed to generate bio');
+    }
+
+    const data = await response.json();
+    return data.bio;
   } catch (error) {
     console.error("Error generating bio:", error);
-    return "Something went wrong, but I'm still amazing!";
+    return "I'm a mystery waiting to be discovered.";
   }
 };
 
 export const analyzeMatch = async (userProfile: Profile, targetProfile: Profile): Promise<{ score: number; reasoning: string }> => {
   try {
-    const response = await ai.models.generateContent({
-      model: 'gemini-3-flash-preview',
-      config: {
-        responseMimeType: "application/json",
-        responseSchema: {
-          type: Type.OBJECT,
-          properties: {
-            score: { type: Type.NUMBER, description: "Compatibility score from 0-100" },
-            reasoning: { type: Type.STRING, description: "One sentence explanation of the match" }
-          },
-          required: ["score", "reasoning"]
-        }
+    const response = await fetch('/api/analyze-match', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
       },
-      contents: `Analyze the compatibility between two people for a dating app.
-      Person 1: ${JSON.stringify(userProfile)}
-      Person 2: ${JSON.stringify(targetProfile)}
-      Be insightful and look for deeper connections beyond just surface interests.`,
+      body: JSON.stringify({ userProfile, targetProfile }),
     });
-    
-    // Access .text property directly
-    return JSON.parse(response.text || '{"score": 50, "reasoning": "A potential spark!"}');
+
+    if (!response.ok) {
+      throw new Error('Failed to analyze match');
+    }
+
+    const data = await response.json();
+    return data;
   } catch (error) {
     console.error("Error analyzing match:", error);
     return { score: Math.floor(Math.random() * 40) + 50, reasoning: "Our AI sees a unique potential here!" };
