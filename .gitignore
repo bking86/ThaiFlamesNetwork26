@@ -27,6 +27,10 @@ yarn-error.log*
 .env.production.local
 *.pem
 
+# --- Python Virtual Environment ---
+venv/
+
+
 # --- Databases ---
 *.db
 *.sqlite

@@ -27,7 +27,7 @@ A high-trust matchmaking ecosystem for sustainable partnerships, featuring AI-as
 3. **Environment Variables**:
    Create a `.env.local` file and add your credentials (do not commit this file):
    ```env
-   API_KEY=gen-lang-client-0478239032
+   API_KEY=your_gemini_api_key
    POSTGRES_URL=your_vercel_postgres_url
    ```
 
